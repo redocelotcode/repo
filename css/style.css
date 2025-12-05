@@ -1,0 +1,207 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+body {
+    background: #f5f7fb;
+    color: #222;
+    line-height: 1.5;
+}
+
+header {
+    padding: 20px 40px;
+    background: #121826;
+    color: #fff;
+}
+
+header h1 {
+    margin-bottom: 6px;
+}
+
+main {
+    padding: 20px 40px 40px;
+}
+
+/* search and filter controls */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.filter-group {
+    display: flex;
+    gap: 8px;
+}
+
+.filter-btn {
+    border: none;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    background: #e3e7ff;
+    font-size: 14px;
+}
+
+.filter-btn.active {
+    background: #4b6bff;
+    color: #fff;
+}
+
+.filter-btn:hover {
+    filter: brightness(0.95);
+}
+
+.search-group input {
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid #cdd3f5;
+    min-width: 220px;
+}
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.graph-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px 10px 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.graph-card img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+}
+
+.graph-card h2 {
+    font-size: 16px;
+}
+
+.graph-card p {
+    font-size: 13px;
+    color: #555;
+}
+footer {
+    padding: 10px 40px 20px;
+    font-size: 12px;
+    color: #666;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+    background: #f5f7fb;
+    color: #222;
+    line-height: 1.5;
+}
+
+header {
+    padding: 20px 40px;
+    background: #731c1c;
+    color: #fff;
+}
+
+header h1 {
+    margin-bottom: 6px;
+}
+
+main {
+    padding: 20px 40px 40px;
+}
+
+/*search filters */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.filter-group {
+    display: flex;
+    gap: 8px;
+}
+
+.filter-btn {
+    border: none;
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    background: #ffe3e5;
+    font-size: 14px;
+}
+
+.filter-btn.active {
+    background: #bf6a6a;
+    color: #fff;
+}
+
+.filter-btn:hover {
+    filter: brightness(0.95);
+}
+
+.search-group input {
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid #e4b6b6;
+    min-width: 220px;
+}
+
+/* graph collction */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.graph-card {
+    background: #c26262;
+    border-radius: 12px;
+    padding: 10px 10px 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.graph-card img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+}
+
+.graph-card h2 {
+    font-size: 16px;
+}
+
+.graph-card p {
+    font-size: 13px;
+    color: #555;
+}
+
+footer {
+    padding: 10px 40px 20px;
+    font-size: 12px;
+    color: #666;
+}
