@@ -1,0 +1,168 @@
+<?php require __DIR__ . '/layout/header.php'; ?>
+
+<section class="mb-4">
+    <div class="alert alert-primary border-0 shadow-sm">
+        <h2 class="h5 mb-2">Software Complexity & other thigns</h2>
+        <p class="mb-2">Explore comprehensive metrics across multiple datasets. Compare complexity trends, analyse patterns, and benchmark against GitHub repositories.</p>
+        <div class="d-flex gap-2 flex-wrap">
+            <span class="badge bg-primary-subtle text-primary border border-primary">Complexity</span>
+            <span class="badge bg-primary-subtle text-primary border border-primary">Analysis</span>
+            <span class="badge bg-primary-subtle text-primary border border-primary">Code Metrics</span>
+            <span class="badge bg-primary-subtle text-primary border border-primary">GitHub Benchmarks</span>
+        </div>
+    </div>
+</section>
+
+<section class="mb-4">
+    <div class="row g-3">
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="display-6 text-primary fw-bold">24</div>
+                    <div class="text-muted small">Available Graphs</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="display-6 text-success fw-bold">156</div>
+                    <div class="text-muted small">Visualisations</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="display-6 text-warning fw-bold">8</div>
+                    <div class="text-muted small">GitHub Benchmarks</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="display-6 text-info fw-bold">3</div>
+                    <div class="text-muted small">Chart Types</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mb-4">
+    <div class="card border-0 shadow-sm">
+        <div class="card-body">
+            <div class="row g-3 align-items-center">
+                <div class="col-md-7">
+                    <label class="form-label small fw-semibold mb-2">Filter by Chart Type</label>
+                    <div class="d-flex flex-wrap gap-2">
+                        <button class="btn btn-sm btn-primary filter-button active" data-filter="all">All Graphs</button>
+                        <button class="btn btn-sm btn-outline-primary filter-button" data-filter="line">Line Charts</button>
+                        <button class="btn btn-sm btn-outline-primary filter-button" data-filter="bar">Bar Charts</button>
+                        <button class="btn btn-sm btn-outline-primary filter-button" data-filter="histogram">Histograms</button>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <label class="form-label small fw-semibold mb-2">Search Graphs</label>
+                    <input id="searchInput" type="text" class="form-control" placeholder="Search by project or metric name...">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="row g-3" id="graphGallery">
+    <div class="col-12 graph-card-wrapper" data-type="line" data-name="complexity trend project a main repository">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <span class="badge bg-success-subtle text-success border border-success mb-2">Featured</span>
+                <h2 class="h5 mb-1">Complexity Trend - Project A (Main Repository)</h2>
+                <p class="text-muted small mb-3">Cyclomatic complexity evolution over 6 months</p>
+                <img src="images/graph1.png" class="img-fluid rounded mb-3 border" alt="Complexity trend - Project A">
+                <div class="row g-2">
+                    <div class="col-md-4"><span class="text-muted small">Average Complexity:</span> <strong class="text-warning">8.2</strong></div>
+                    <div class="col-md-4"><span class="text-muted small">Total Commits:</span> <strong>247</strong></div>
+                    <div class="col-md-4"><span class="text-muted small">Trend:</span> <strong class="text-danger">↑ Increasing</strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 graph-card-wrapper" data-type="bar" data-name="lines of code distribution project b components">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <h3 class="h6 mb-1">Lines of Code Distribution - Project B</h3>
+                <p class="text-muted small mb-2">Component size analysis</p>
+                <img src="images/graph2.png" class="img-fluid rounded mb-2 border" alt="Lines of Code Distribution - Project B">
+                <div class="d-flex justify-content-between small">
+                    <span class="text-muted">Classes Analysed: <strong>...</strong></span>
+                    <span class="text-success">✓ Within Standards</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 graph-card-wrapper" data-type="histogram" data-name="complexity density histogram project c module distribution">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <h3 class="h6 mb-1">Complexity Density - Project C</h3>
+                <p class="text-muted small mb-2">Module complexity distribution</p>
+                <img src="images/graph3.png" class="img-fluid rounded mb-2 border" alt="Complexity Density Histogram - Project C">
+                <div class="d-flex justify-content-between small">
+                    <span class="text-muted">Modules: <strong>28</strong></span>
+                    <span class="text-warning">⚠ Needs Review</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 graph-card-wrapper" data-type="line" data-name="github benchmark">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <span class="badge bg-info-subtle text-info border border-info mb-2">GitHub Benchmark</span>
+                <h3 class="h6 mb-2">Rio's Work goes here:</h3>
+                <div class="bg-light rounded p-4 text-center mb-2" style="min-height: 150px;">
+                    <p class="text-muted small mb-0">Sample Data</p>
+                </div>
+                <p class="small text-muted mb-0">Comparing against other data</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 graph-card-wrapper" data-type="bar" data-name="code coverage metrics project d testing">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <h3 class="h6 mb-2">Code Coverage - Project D</h3>
+                <div class="bg-light rounded p-4 text-center mb-2" style="min-height: 150px;">
+                    <p class="text-muted small mb-0">Sample Data</p>
+                </div>
+                <p class="small text-muted mb-0">Test coverage by module</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 graph-card-wrapper" data-type="histogram" data-name="maintainability index distribution project e">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <h3 class="h6 mb-2">Maintainability Index - Project E</h3>
+                <div class="bg-light rounded p-4 text-center mb-2" style="min-height: 150px;">
+                    <p class="text-muted small mb-0">Sample Data</p>
+                </div>
+                <p class="small text-muted mb-0">Distribution across data</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mt-4">
+    <div class="card border-0 shadow-sm bg-light">
+        <div class="card-body text-center py-4">
+            <h3 class="h5 mb-3">Ready to Compare Data?</h3>
+            <p class="text-muted mb-3">Use the comparison tool to overlay metrics from different repositories and identify patterns</p>
+            <a href="index.php?page=compare" class="btn btn-primary">Open Comparison Tool</a>
+        </div>
+    </div>
+</section>
+
+<?php require __DIR__ . '/layout/footer.php'; ?>

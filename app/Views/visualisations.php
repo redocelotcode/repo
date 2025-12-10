@@ -1,0 +1,101 @@
+<?php require __DIR__ . '/layout/header.php'; ?>
+
+<section class="mb-4">
+    <div class="alert alert-success border-0 shadow-sm">
+        <h2 class="h5 mb-2">Visualisation Gallery</h2>
+        <p class="mb-0">Browse all generated visualisations from your data sources. Filter by metric type or repository.</p>
+    </div>
+</section>
+
+<section class="mb-4">
+    <div class="card border-0 shadow-sm">
+        <div class="card-body">
+            <div class="row g-3 align-items-center">
+                <div class="col-md-4">
+                    <label class="form-label small fw-semibold">Repository</label>
+                    <select class="form-select">
+                        <option selected>All Repositories</option>
+                        <option>Project A - Main</option>
+                        <option>Project B - Components</option>
+                        <option>Project C - Modules</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label small fw-semibold">Metric Type</label>
+                    <select class="form-select">
+                        <option selected>All Metrics</option>
+                        <option>Cyclomatic Complexity</option>
+                        <option>Lines of Code</option>
+                        <option>Maintainability Index</option>
+                        <option>Technical Debt</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label small fw-semibold">Date Range</label>
+                    <select class="form-select">
+                        <option selected>Last 30 days</option>
+                        <option>Last 7 days</option>
+                        <option>Last 90 days</option>
+                        <option>All time</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="row g-3 mb-4">
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <h3 class="h6 mb-3">Cyclomatic Complexity Over Time</h3>
+                <div class="bg-light rounded p-5 text-center" style="min-height: 200px;">
+                    <p class="text-muted mb-0">Chart placeholder</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <h3 class="h6 mb-3">Lines of Code by Module</h3>
+                <div class="bg-light rounded p-5 text-center" style="min-height: 200px;">
+                    <p class="text-muted mb-0">Chart placeholder</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <h3 class="h6 mb-3">Technical Debt Trends</h3>
+                <div class="bg-light rounded p-5 text-center" style="min-height: 200px;">
+                    <p class="text-muted mb-0">Chart placeholder</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <h3 class="h6 mb-3">Maintainability Distribution</h3>
+                <div class="bg-light rounded p-5 text-center" style="min-height: 200px;">
+                    <p class="text-muted mb-0">Chart placeholder</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="card border-0 shadow-sm bg-light">
+        <div class="card-body text-center py-4">
+            <h3 class="h5 mb-3">Generate New Visualisation</h3>
+            <p class="text-muted mb-3">Create custom charts from your connected data sources</p>
+            <button class="btn btn-success" disabled>Create Visualisation</button>
+            <p class="text-muted small mt-2 mb-0">^^adding later</p>
+        </div>
+    </div>
+</section>
+
+<?php require __DIR__ . '/layout/footer.php'; ?>

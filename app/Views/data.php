@@ -1,0 +1,99 @@
+<?php require __DIR__ . '/layout/header.php'; ?>
+
+<section class="mb-4">
+    <div class="alert alert-info border-0 shadow-sm">
+        <h2 class="h5 mb-2">Data Sources</h2>
+        <p class="mb-0">Manage and upload your source code repositories for complexity analysis. Connect to local files or sync with GitHub repositories.</p>
+    </div>
+</section>
+
+<section class="mb-4">
+    <div class="row g-3">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="display-6 text-primary fw-bold">5</div>
+                    <div class="text-muted small">Connected Repositories</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="display-6 text-success fw-bold">12.4k</div>
+                    <div class="text-muted small">Files Analysed</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="display-6 text-info fw-bold">3</div>
+                    <div class="text-muted small">Pending Uploads</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mb-4">
+    <div class="card border-0 shadow-sm">
+        <div class="card-header bg-white border-bottom">
+            <h3 class="h6 mb-0">Connected Repositories</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                    <tr>
+                        <th>Repository</th>
+                        <th>Type</th>
+                        <th>Files</th>
+                        <th>Last Synced</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><strong>Project A - Main</strong></td>
+                        <td><span class="badge bg-secondary">Local</span></td>
+                        <td>2,847</td>
+                        <td>2 hours ago</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Project B - Components</strong></td>
+                        <td><span class="badge bg-dark">GitHub</span></td>
+                        <td>1,234</td>
+                        <td>1 day ago</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Project C - Modules</strong></td>
+                        <td><span class="badge bg-secondary">Local</span></td>
+                        <td>892</td>
+                        <td>3 days ago</td>
+                        <td><span class="badge bg-warning text-dark">Outdated</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mb-4">
+    <div class="card border-0 shadow-sm bg-light">
+        <div class="card-body text-center py-5">
+            <h3 class="h5 mb-3">Add New Data</h3>
+            <p class="text-muted mb-4">Connect a new repository to start analysing their complexity metrics</p>
+            <div class="d-flex justify-content-center gap-3">
+                <button class="btn btn-primary" disabled>Upload Files</button>
+                <button class="btn btn-outline-dark" disabled>Connect GitHub</button>
+            </div>
+            <p class="text-muted small mt-3 mb-0">adding later</p>
+        </div>
+    </div>
+</section>
+
+<?php require __DIR__ . '/layout/footer.php'; ?>

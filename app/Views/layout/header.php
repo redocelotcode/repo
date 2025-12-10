@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= htmlspecialchars($pageTitle ?? 'RedOcelot') ?> - RedOcelot Graph Library</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #731c1c 0%, #bf6a6a 100%);
+            min-height: 100vh;
+        }
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.3) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .main-container { margin-top: 2rem; margin-bottom: 2rem; }
+        .main-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        .card-header-custom {
+            background: linear-gradient(135deg, #731c1c 0%, #c26262 100%);
+            color: white;
+            padding: 2rem;
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        footer .text-muted { color: rgba(255, 255, 255, 0.7) !important; }
+    </style>
+</head>
+<body class="text-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand fw-semibold" href="index.php">RedOcelot Graph Library</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link <?= ($currentPage ?? '') === 'dashboard' ? 'active' : '' ?>" href="index.php">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link <?= ($currentPage ?? '') === 'data' ? 'active' : '' ?>" href="index.php?page=data">Data</a></li>
+                <li class="nav-item"><a class="nav-link <?= ($currentPage ?? '') === 'visualisations' ? 'active' : '' ?>" href="index.php?page=visualisations">Visualisations</a></li>
+                <li class="nav-item"><a class="nav-link <?= ($currentPage ?? '') === 'compare' ? 'active' : '' ?>" href="index.php?page=compare">Compare</a></li>
+                <li class="nav-item"><a class="nav-link <?= ($currentPage ?? '') === 'benchmarks' ? 'active' : '' ?>" href="index.php?page=benchmarks">Benchmarks</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container main-container">
+    <div class="main-card">
+        <div class="card-header-custom text-center">
+            <h1 class="h3 mb-2"><?= htmlspecialchars($pageTitle ?? 'RedOcelot Graph Library') ?></h1>
+            <p class="mb-0 opacity-75">View data, visualise complexity trends, and gain insights</p>
+        </div>
+        <div class="card-body text-dark p-4">
+            <main>

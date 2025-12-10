@@ -1,0 +1,138 @@
+<?php require __DIR__ . '/layout/header.php'; ?>
+
+<section class="mb-4">
+    <div class="alert alert-secondary border-0 shadow-sm">
+        <h2 class="h5 mb-2">GitHub Benchmarks</h2>
+        <p class="mb-0">Compare stuff i guess idk what to put here help</p>
+    </div>
+</section>
+
+<section class="mb-4">
+    <div class="row g-3">
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="display-6 text-primary fw-bold">8</div>
+                    <div class="text-muted small">Benchmark Projects</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="display-6 text-success fw-bold">Good</div>
+                    <div class="text-muted small">Your Score</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="display-6 text-warning fw-bold">...%</div>
+                    <div class="text-muted small">Percentile Rank</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="display-6 text-info fw-bold">3?</div>
+                    <div class="text-muted small">Areas to Improve</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mb-4">
+    <div class="card border-0 shadow-sm">
+        <div class="card-header bg-white border-bottom">
+            <h3 class="h6 mb-0">Available GitHub Benchmarks</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                    <tr>
+                        <th>Repository</th>
+                        <th>Language</th>
+                        <th>Stars</th>
+                        <th>Average Complexity</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><strong>react</strong></td>
+                        <td><span class="badge bg-warning text-dark">JavaScript</span></td>
+                        <td>220k</td>
+                        <td>6.2</td>
+                        <td><button class="btn btn-sm btn-outline-primary" disabled>Compare</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>vuejs/vue</strong></td>
+                        <td><span class="badge bg-warning text-dark">JavaScript</span></td>
+                        <td>206k</td>
+                        <td>5.8</td>
+                        <td><button class="btn btn-sm btn-outline-primary" disabled>Compare</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>angular/angular</strong></td>
+                        <td><span class="badge bg-info">TypeScript</span></td>
+                        <td>95k</td>
+                        <td>7.1</td>
+                        <td><button class="btn btn-sm btn-outline-primary" disabled>Compare</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>idk/idk</strong></td>
+                        <td><span class="badge bg-primary">Python</span></td>
+                        <td>77k</td>
+                        <td>8.4</td>
+                        <td><button class="btn btn-sm btn-outline-primary" disabled>Compare</button></td>
+                    </tr>
+                    <tr>
+                        <td><strong>another one/another one</strong></td>
+                        <td><span class="badge bg-secondary">PHP</span></td>
+                        <td>76k</td>
+                        <td>4.9</td>
+                        <td><button class="btn btn-sm btn-outline-primary" disabled>Compare</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mb-4">
+    <div class="card border-0 shadow-sm">
+        <div class="card-header bg-white border-bottom">
+            <h3 class="h6 mb-0">Your Project vs Industry Average</h3>
+        </div>
+        <div class="card-body">
+            <div class="bg-light rounded p-5 text-center" style="min-height: 250px;">
+                <p class="text-muted mb-0">Select a benchmark repository above to see a comparison chart</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="card border-0 shadow-sm bg-light">
+        <div class="card-body text-center py-4">
+            <h3 class="h5 mb-3">Add Custom Benchmark</h3>
+            <p class="text-muted mb-3">Enter a GitHub repository URL to add it as a benchmark</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="https://github.com/owner/repo" disabled>
+                        <button class="btn btn-primary" disabled>Add</button>
+                    </div>
+                </div>
+            </div>
+            <p class="text-muted small mt-2 mb-0">^^adding later on...</p>
+        </div>
+    </div>
+</section>
+
+<?php require __DIR__ . '/layout/footer.php'; ?>
