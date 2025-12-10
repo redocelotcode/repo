@@ -124,6 +124,7 @@
                 <h3 class="h6 mb-2">Rio's Work goes here:</h3>
                 <div class="bg-light rounded p-4 text-center mb-2" style="min-height: 150px;">
                     <p class="text-muted small mb-0">Sample Data</p>
+                    <img src="images/graph4.png" class="img-fluid rounded mb-2 border" alt="Github Benchmarks">
                 </div>
                 <p class="small text-muted mb-0">Comparing against other data</p>
             </div>
@@ -135,6 +136,7 @@
             <div class="card-body">
                 <h3 class="h6 mb-2">Code Coverage - Project D</h3>
                 <div class="bg-light rounded p-4 text-center mb-2" style="min-height: 150px;">
+                    <img src="images/graph5.png" class="img-fluid rounded mb-2 border" alt="Code Coverage- Project D">
                     <p class="text-muted small mb-0">Sample Data</p>
                 </div>
                 <p class="small text-muted mb-0">Test coverage by module</p>
@@ -148,6 +150,7 @@
                 <h3 class="h6 mb-2">Maintainability Index - Project E</h3>
                 <div class="bg-light rounded p-4 text-center mb-2" style="min-height: 150px;">
                     <p class="text-muted small mb-0">Sample Data</p>
+                    <img src="images/graph6.png" class="img-fluid rounded mb-2 border" alt="maintainability index distribution- Project E">
                 </div>
                 <p class="small text-muted mb-0">Distribution across data</p>
             </div>
