@@ -1,16 +1,18 @@
 <?php
 declare(strict_types=1);
 
-spl_autoload_register(function ($class) {
-    $controllerPath = __DIR__ . '/../app/controllers/' . $class . '.php';
-    if (file_exists($controllerPath)) {
-        require_once $controllerPath;
-    }
-});
+// don't remove this
+use Models\HomeController;
+
+//removed redundant code
+
+// this gets the page
+require_once('Models/HomeController.php');
 
 $page = $_GET['page'] ?? 'dashboard';
 $controller = new HomeController();
 
+// pages switch for nav
 switch ($page) {
     case 'data':
         $controller->data();
