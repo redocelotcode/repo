@@ -33,13 +33,37 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         footer .text-muted { color: rgba(255, 255, 255, 0.7) !important; }
+
+        /* fixed size graph containers */
+        .graph-container {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            border-radius: 0.375rem;
+            border: 1px solid #dee2e6;
+            background: #f8f9fa;
+        }
+        .graph-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .graph-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border-radius: 0.375rem;
+        }
     </style>
 </head>
 <body class="text-light">
 
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand fw-semibold" href="index.php">RedOcelot Graph Library</a>
+        <a class="navbar-brand fw-semibold" href="index.phtml">RedOcelot Graph Library</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
             <span class="navbar-toggler-icon"></span>
         </button>
