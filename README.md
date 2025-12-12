@@ -7,7 +7,7 @@ phtml pages in Views directory \
 nav bar and footer in Views/template \
 
 Todo:
-
+- remove references/foundations for GitHub integration since its retired now :(
 - chart generation
 - sync with everywhere we have a placeholder image
 - comparison tool (basically just show two graphs on one page)
