@@ -15,32 +15,32 @@ class ClassMetricsData
     //constructor
     public function __construct($dbRow)
     {
-        $this->_id = $dbRow["_id"];
-        $this->_average_method_complexity = $dbRow["_average_method_complexity"];
-        $this->_class_dependencies_count = $dbRow["_class_dependencies_count"];
-        $this->_class_name = $dbRow["_class_name"];
-        $this->_class_type = $dbRow["_class_type"];
-        $this->_comment_density = $dbRow["_comment_density"];
-        $this->_commit_date = $dbRow["_commit_date"];
-        $this->_commit_hash = $dbRow["_commit_hash"];
-        $this->_complexity_density = $dbRow["_complexity_density"];
-        $this->_field_count = $dbRow["_field_count"];
-        $this->_fully_qualified_name = $dbRow["_fully_qualified_name"];
-        $this->_is_god_class = $dbRow["_is_god_class"];
-        $this->_lack_of_cohesion = $dbRow["_lack_of_cohesion"];
-        $this->_language = $dbRow["_language"];
-        $this->_max_method_complexity = $dbRow["_max_method_complexity"];
-        $this->_method_count = $dbRow["_method_count"];
-        $this->_package_dependencies_count = $dbRow["_package_dependencies_count"];
-        $this->_package_name = $dbRow["_package_name"];
-        $this->_public_field_count = $dbRow["_public_field_count"];
-        $this->_public_method_count = $dbRow["_public_method_count"];
-        $this->_repository_name = $dbRow["_repository_name"];
-        $this->_repository_owner = $dbRow["_repository_owner"];
-        $this->_total_complexity = $dbRow["_total_complexity"];
-        $this->_total_loc = $dbRow["_total_loc"];
-        $this->_class_complexity = $dbRow["_class_complexity"];
-        $this->_class_loc = $dbRow["_class_loc"];
+        $this->_id = $dbRow["id"];
+        $this->_average_method_complexity = $dbRow["average_method_complexity"];
+        $this->_class_dependencies_count = $dbRow["class_dependencies_count"];
+        $this->_class_name = $dbRow["class_name"];
+        $this->_class_type = $dbRow["class_type"];
+        $this->_comment_density = $dbRow["comment_density"];
+        $this->_commit_date = $dbRow["commit_date"];
+        $this->_commit_hash = $dbRow["commit_hash"];
+        $this->_complexity_density = $dbRow["complexity_density"];
+        $this->_field_count = $dbRow["field_count"];
+        $this->_fully_qualified_name = $dbRow["fully_qualified_name"];
+        $this->_is_god_class = $dbRow["is_god_class"];
+        $this->_lack_of_cohesion = $dbRow["lack_of_cohesion"];
+        $this->_language = $dbRow["language"];
+        $this->_max_method_complexity = $dbRow["max_method_complexity"];
+        $this->_method_count = $dbRow["method_count"];
+        $this->_package_dependencies_count = $dbRow["package_dependencies_count"];
+        $this->_package_name = $dbRow["package_name"];
+        $this->_public_field_count = $dbRow["public_field_count"];
+        $this->_public_method_count = $dbRow["public_method_count"];
+        $this->_repository_name = $dbRow["repository_name"];
+        $this->_repository_owner = $dbRow["repository_owner"];
+        $this->_total_complexity = $dbRow["total_complexity"];
+        $this->_total_loc = $dbRow["total_loc"];
+        $this->_class_complexity = $dbRow["class_complexity"];
+        $this->_class_loc = $dbRow["class_loc"];
 
     }
 
