@@ -8,7 +8,7 @@ require_once ("Models/ClassMetricsDataSet.php");
 require_once ("Models/ClassMetricsData.php");
 require_once ("Models/PackageMetricsDataSet.php");
 require_once ("Models/PackageMetricsData.php");
-
+require_once ("phpChart_Lite/conf.php");
 $CMdataSet = new ClassMetricsDataSet();
 $PMdataSet = new PackageMetricsDataSet();
 
@@ -71,6 +71,13 @@ if(isset($_POST["axisOptions"])){
     */
 }
 ?>
+
+<?php
+/*
+$pc = new C_PhpChartX(array(array(11, 9, 5, 12, 14)),'basic_chart');
+$pc->draw();
+*/
+?>
 <section class="mb-4">
     <div class="alert alert-success border-0 shadow-sm">
         <h2 class="h5 mb-2">Visualisation Gallery</h2>
@@ -115,6 +122,7 @@ if(isset($_POST["axisOptions"])){
                     </select>
                     -->
                     <!-- repo name filters -->
+
                     <form method="post">
                         <label class="form-label small fw-semibold">Repository Name</label>
                         <div class="filter-group">
@@ -145,15 +153,19 @@ if(isset($_POST["axisOptions"])){
                                     <option value="method_count">Method Count</option>
                                     <option value="external_dependencies_count">Dependencies Count</option>
                                 </select>
+                        <div>
                             <label class="form-label small fw-semibold">Y Axis</label>
                                 <select name="yAxisOption">
                                     <option value="class_loc">Lines of Code</option>
                                     <option value="total_classes">Total Classes</option>
                                     <option value="method_count">Total Methods</option>
+                                    <option value="average_method_complexity">Average Method Complexity</option>
                                 </select>
                             <button type="submit" name="axisOptions">Draw Graph</button>
+                        </div>
                     </form>
                 </div>
+                <!-- data representation in a table
                 <div class="col-md-4">
                     <h2>Repository: <?= htmlspecialchars($repoName) ?></h2>
 
@@ -168,7 +180,7 @@ if(isset($_POST["axisOptions"])){
                         </thead>
                         <tbody>
                         <?php foreach ($rows as $i => $CMdata): ?>
-                            <?php if ($i >= 10) break; ?> <!-- limit to 10 rows -->
+                            <?php if ($i >= 10) break; ?>  limit to 10 rows
                             <tr>
                                 <td><?= $CMdata->getID() ?></td>
                                 <td><?= htmlspecialchars($CMdata->getRepositoryOwner()) ?></td>
@@ -179,7 +191,37 @@ if(isset($_POST["axisOptions"])){
                         </tbody>
                     </table>
                 </div>
+                -->
+                <?php
+                $graphdata = [
+                        [30, 0.66], [4, 0.25], [2, 0.5], [11, 0.09], [5, 0.8], [6, 0.33], [5, 0.2], [14, 0.07]
+                ];
+
+                $pc= new C_PhpChartX([$graphdata], 'complexity_chart');
+
+                $pc->set_xaxes([
+                        'xaxis' => [
+                                'label' =>'method count',
+
+                        ]
+                ]);
+
+                $pc->set_yaxes([
+                        'yaxis' => [
+                                'label' =>'average method complexity',
+                                'min'=>0
+                        ]
+                ]);
+                $pc->set_title(['text' =>'Average Method Complexity Trend Data']);
+                $pc->set_series_default([
+                        'showLine' => true,
+                        'markerOptions' => ['show' => true]
+                ]);
+                //$pc = new C_PhpChartX(array(array(11, 9, 5, 12, 14)),'basic_chart');
+                $pc->draw();
+                ?>
             </div>
+
         </div>
     </div>
 </section>
@@ -235,6 +277,36 @@ if(isset($_POST["axisOptions"])){
             <button class="btn btn-success" disabled>Create Visualisation</button>
             <p class="text-muted small mt-2 mb-0">^^adding later</p>
         </div>
+        <?php
+        /*
+        $graphdata = [
+                [30, 0.66], [4, 0.25], [2, 0.5], [11, 0.09], [5, 0.8], [6, 0.33], [5, 0.2], [14, 0.07]
+        ];
+
+        $pc= new C_PhpChartX([$graphdata], 'complexity_chart');
+
+        $pc->set_xaxes([
+                'xaxis' => [
+                        'label' =>'method count',
+
+                    ]
+        ]);
+
+        $pc->set_yaxes([
+                'yaxis' => [
+                        'label' =>'average method complexity',
+                    'min'=>0
+                ]
+        ]);
+        $pc->set_title(['text' =>'Average Method Complexity Trend Data']);
+        $pc->set_series_default([
+                'showLine' => true,
+                'markerOptions' => ['show' => true]
+        ]);
+        $pc = new C_PhpChartX(array(array(11, 9, 5, 12, 14)),'basic_chart');
+        $pc->draw();
+        */
+        ?>
     </div>
 </section>
 
