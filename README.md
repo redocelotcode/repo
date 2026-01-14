@@ -1,16 +1,13 @@
 # The recocelot hackcamp repo for website and database code
 
-Following the MVC template layout
-
-Controllers in root directory \
+Controllers in root directory exlc home controller\
 phtml pages in Views directory \
 nav bar and footer in Views/template \
 
-Todo:
-- remove references/foundations for GitHub integration since its retired now :(
-- chart generation
-- sync with everywhere we have a placeholder image
-- comparison tool (basically just show two graphs on one page)
-- host on poseidon
-- test on poseidon
-- celebrate or mourn depending on outcome
+To run:
+1. Clone repo / download zip
+2. Extract zip into PHP project directory
+3. Open project in php storm
+4. Edit configurations
+5. Add php built-in web server
+6. Run project

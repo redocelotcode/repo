@@ -1,13 +1,4 @@
-<?php
-require_once("../index.php");
-
-/**
- * K thats your job lol -RL
- *
- * put the example code below but you'll need to install phpchart
- * might flag a virus but it seems to be one with a high false-positive rate
- */
-?>
+<?php require_once("../index.php"); ?>
 
 <!DOCTYPE HTML>
 <html>
