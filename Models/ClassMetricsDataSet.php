@@ -72,7 +72,7 @@ class ClassMetricsDataSet
         return $dataSet;
     }
 
-    //gets graph values
+    //gets graph valuess
     public function fetchGraphValues($repoOwner, $repoName, $className, $xAxis, $yAxis){
         $sqlquery = 'SELECT id, :xAxis, :yAxis FROM class_metrics WHERE repository_name = :repo_name AND repository_owner = :repo_owner AND class_name = :class_name;';
         $statement = $this->_dbHandle->prepare($sqlquery);

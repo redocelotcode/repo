@@ -1,5 +1,76 @@
 <?php require('template/header.phtml') ?>
+<?php
+use Models\ClassMetricsDataSet;
+use Models\PackageMetricsDataSet;
 
+require_once ("Models/Database.php");
+require_once ("Models/ClassMetricsDataSet.php");
+require_once ("Models/ClassMetricsData.php");
+require_once ("Models/PackageMetricsDataSet.php");
+require_once ("Models/PackageMetricsData.php");
+
+$CMdataSet = new ClassMetricsDataSet();
+$PMdataSet = new PackageMetricsDataSet();
+
+$showGraph = false;
+//$graphVisualisation = new Visualisation;
+
+$repoOwner = isset($_POST["repoOwner"]) ? $_POST["repoOwner"] : null;
+$repoName = isset($_POST["repoName"]) ? $_POST["repoName"] : null;
+$pckgName = isset($_POST["pckgName"]) ? $_POST["pckgName"] : null;
+
+if(isset($_POST["repoName"])){
+    $repoName = $_POST["repoName"];
+}
+if(isset($_POST["repoOwner"])){
+    $repoOwner = $_POST["repoOwner"];
+}
+
+$rows=$CMdataSet->fetchClassMetricsByRepoName($repoName);
+$repoNames = [];
+
+$repoNames = $CMdataSet->fetchUniqueRepoNamesByOwner($repoOwner);
+/*
+ * code to facilitate package name filters
+ *
+
+$packagerows=$PMdataSet->fetchPackageMetricsByRepoName($repoName);
+$pckgNames = [];
+
+$pckgNames = $PMdataSet->fetchUniquePackageNamesByOwner($repoOwner);
+
+*/
+
+/* $repoNames debugging
+foreach($repoNames as $repoName){
+    echo $repoName;
+}
+*/
+
+
+echo $repoOwner . $repoName;
+
+
+if(isset($_POST["axisOptions"])){
+    $xAxis = $_POST["xAxisOption"];
+    $yAxis = $_POST["yAxisOption"];
+    if(isset($_POST["xAxisOption"]) && isset($_POST["yAxisOption"])&& isset($_POST["repoName"])){
+        echo $xAxis;
+        echo $yAxis;
+        echo $repoName;
+        echo $repoOwner;
+    }
+
+
+    /*
+    if(isset($repoName) && isset($yAxis) && isset($xAxis)){
+        $graphVisualisation->drawGraph($repoName, $xAxis, $yAxis);
+        $showgraph = true;
+
+    }
+    */
+}
+?>
 <section class="mb-4">
     <div class="alert alert-success border-0 shadow-sm">
         <h2 class="h5 mb-2">Visualisation Gallery</h2>
@@ -12,6 +83,7 @@
         <div class="card-body">
             <div class="row g-3 align-items-center">
                 <div class="col-md-4">
+                    <!--
                     <label class="form-label small fw-semibold">Repository</label>
                     <select class="form-select">
                         <option selected>All Repositories</option>
@@ -19,8 +91,20 @@
                         <option>Project B - Components</option>
                         <option>Project C - Modules</option>
                     </select>
+                    -->
+                    <!-- repo owner filters -->
+                    <form method="post">
+                        <label class="form-label small fw-semibold">Repository Owner</label>
+                        <div >
+                            <button class="filter-btn " type="submit" name="repoOwner" value="expressjs">expressjs</button>
+                            <button class="filter-btn " type="submit" name="repoOwner" value="pallets">pallets</button>
+                            <button class="filter-btn " type="submit" name="repoOwner" value="apache">apache</button>
+                            <button class="filter-btn " type="submit" name="repoOwner" value="spring-projects">spring-projects</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-md-4">
+                    <!--
                     <label class="form-label small fw-semibold">Metric Type</label>
                     <select class="form-select">
                         <option selected>All Metrics</option>
@@ -29,8 +113,20 @@
                         <option>Maintainability Index</option>
                         <option>Technical Debt</option>
                     </select>
+                    -->
+                    <!-- repo name filters -->
+                    <form method="post">
+                        <label class="form-label small fw-semibold">Repository Name</label>
+                        <div class="filter-group">
+                            <input type="hidden" name="repoOwner" value="<?= htmlspecialchars($repoOwner) ?>">
+                            <?php foreach ($repoNames as $repoName): ?>
+                                <button class="filter-btn" type="submit" name="repoName" value="<?= $repoName ?>"><?= $repoName ?></button>
+                            <?php endforeach; ?>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-md-4">
+                    <!--
                     <label class="form-label small fw-semibold">Date Range</label>
                     <select class="form-select">
                         <option selected>Last 30 days</option>
@@ -38,6 +134,50 @@
                         <option>Last 90 days</option>
                         <option>All time</option>
                     </select>
+                    -->
+                    <form method="post">
+                        <input type="hidden" name="repoOwner" value="<?= htmlspecialchars($repoOwner) ?>">
+                        <input type="hidden" name="repoName" value="<?= htmlspecialchars($repoName) ?>">
+
+                            <label class="form-label small fw-semibold">X Axis</label>                         <select name="xAxisOption">
+                                    <option value="commit_date">Commitment Date</option>
+                                    <option value="analyzed_at">Analysed At</option>
+                                    <option value="method_count">Method Count</option>
+                                    <option value="external_dependencies_count">Dependencies Count</option>
+                                </select>
+                            <label class="form-label small fw-semibold">Y Axis</label>
+                                <select name="yAxisOption">
+                                    <option value="class_loc">Lines of Code</option>
+                                    <option value="total_classes">Total Classes</option>
+                                    <option value="method_count">Total Methods</option>
+                                </select>
+                            <button type="submit" name="axisOptions">Draw Graph</button>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h2>Repository: <?= htmlspecialchars($repoName) ?></h2>
+
+                    <table border = 1>
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>repository owner</th>
+                            <th>repository name</th>
+                            <th>commit date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($rows as $i => $CMdata): ?>
+                            <?php if ($i >= 10) break; ?> <!-- limit to 10 rows -->
+                            <tr>
+                                <td><?= $CMdata->getID() ?></td>
+                                <td><?= htmlspecialchars($CMdata->getRepositoryOwner()) ?></td>
+                                <td><?= htmlspecialchars($CMdata->getRepositoryName()) ?></td>
+                                <td><?= htmlspecialchars($CMdata->getCommitdate())?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
