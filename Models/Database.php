@@ -22,7 +22,11 @@ class Database
     private function __construct()
     {
         try {
-            $this->_dbHandle = new PDO("sqlite:db/db.sqlite");
+            $this->_dbHandle = new \PDO("pgsql:host=localhost;port=5432;dbname=hackcamp",
+                "postgres",
+                "*PUT YOUR PASSWORD HERE*"
+            );
+
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
