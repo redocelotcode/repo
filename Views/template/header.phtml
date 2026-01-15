@@ -27,6 +27,23 @@
             color: white;
             padding: 2rem;
         }
+        .filter-btn {
+            border: none;
+            padding: 6px 12px;
+            border-radius: 999px;
+            cursor: pointer;
+            background: #f3f4fb;
+            font-size: 13px;
+        }
+
+        .filter-btn.active {
+            background: #731c1c;
+            color: #fff;
+        }
+
+        .filter-btn:hover {
+            filter: brightness(0.95);
+        }
         footer {
             background: rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
@@ -56,6 +73,12 @@
             justify-content: center;
             background: #f8f9fa;
             border-radius: 0.375rem;
+        }
+        .small-dropdown {
+            width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     </style>
 </head>

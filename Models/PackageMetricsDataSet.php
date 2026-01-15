@@ -54,6 +54,35 @@ class PackageMetricsDataSet
         }
         return $dataSet;
     }
+
+    public function graph($packageName){
+        $sqlQuery = 'select package_metrics.commit_date, avg(package_metrics.package_complexity) as avg_package_complexity from package_metrics where package_name = :package_name group by package_name, package_metrics.commit_date order by package_metrics.commit_date;';
+        $statement = $this->_dbHandle->prepare($sqlQuery);
+        $statement->bindValue(':package_name', $packageName);
+        $statement->execute();
+        $dataSet = [];
+        $i = 1;
+
+        while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+            $dataSet[] = [$i, (int)$row['avg_package_complexity']];
+            $i++;
+        }
+        return $dataSet;
+    }
+
+    public function fetchPackageNamesByRepoName($repoName)
+    {
+        $sqlquery = 'SELECT distinct package_name FROM package_metrics WHERE repository_name = :repo_name;';
+        $statement = $this->_dbHandle->prepare($sqlquery);
+        $statement->bindValue(':repo_name', $repoName);
+        $statement->execute();
+        $dataSet = [];
+        while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+            $dataSet[] = $row['package_name'];
+        }
+        return $dataSet;
+    }
+
     //gets graph valuess
     public function fetchGraphValues($repoOwner, $repoName, $className, $xAxis, $yAxis){
         $sqlquery = 'SELECT id, :xAxis, :yAxis FROM package_metrics WHERE repository_name = :repo_name AND repository_owner = :repo_owner AND class_name = :class_name;';

@@ -17,7 +17,7 @@ $showGraph = false;
 
 $repoOwner = isset($_POST["repoOwner"]) ? $_POST["repoOwner"] : null;
 $repoName = isset($_POST["repoName"]) ? $_POST["repoName"] : null;
-$pckgName = isset($_POST["pckgName"]) ? $_POST["pckgName"] : null;
+$packageName = isset($_POST["packageName"]) ? $_POST["packageName"] : null;
 
 if(isset($_POST["repoName"])){
     $repoName = $_POST["repoName"];
@@ -25,11 +25,17 @@ if(isset($_POST["repoName"])){
 if(isset($_POST["repoOwner"])){
     $repoOwner = $_POST["repoOwner"];
 }
+if(isset($_POST["packageName"])){
+    $packageName = $_POST["packageName"];
+}
 
 $rows=$CMdataSet->fetchClassMetricsByRepoName($repoName);
 $repoNames = [];
 
 $repoNames = $CMdataSet->fetchUniqueRepoNamesByOwner($repoOwner);
+
+$packageNames = [];
+$packageNames = $PMdataSet->fetchPackageNamesByRepoName($repoName);
 /*
  * code to facilitate package name filters
  *
@@ -50,7 +56,7 @@ foreach($repoNames as $repoName){
 
 echo $repoOwner . $repoName;
 
-
+/*
 if(isset($_POST["axisOptions"])){
     $xAxis = $_POST["xAxisOption"];
     $yAxis = $_POST["yAxisOption"];
@@ -60,6 +66,15 @@ if(isset($_POST["axisOptions"])){
         echo $repoName;
         echo $repoOwner;
     }
+*/
+if (
+        isset($_POST['drawGraph']) &&
+        isset($_POST['package_name']) &&
+        $_POST['package_name'] !== ''
+) {
+    $packageName = $_POST['package_name'];
+    $graphData = $PMdataSet->graph($packageName);
+}
 
 
     /*
@@ -69,7 +84,7 @@ if(isset($_POST["axisOptions"])){
 
     }
     */
-}
+
 ?>
 
 <?php
@@ -77,6 +92,11 @@ if(isset($_POST["axisOptions"])){
 $pc = new C_PhpChartX(array(array(11, 9, 5, 12, 14)),'basic_chart');
 $pc->draw();
 */
+?>
+<?php
+//$pmDataSet = new PackageMetricsDataSet();
+//$dataSet = $pmDataSet->graph("org.apache.kafka.api");
+
 ?>
 <section class="mb-4">
     <div class="alert alert-success border-0 shadow-sm">
@@ -146,7 +166,7 @@ $pc->draw();
                     <form method="post">
                         <input type="hidden" name="repoOwner" value="<?= htmlspecialchars($repoOwner) ?>">
                         <input type="hidden" name="repoName" value="<?= htmlspecialchars($repoName) ?>">
-
+                        <!--
                             <label class="form-label small fw-semibold">X Axis</label>                         <select name="xAxisOption">
                                     <option value="commit_date">Commitment Date</option>
                                     <option value="analyzed_at">Analysed At</option>
@@ -163,6 +183,20 @@ $pc->draw();
                                 </select>
                             <button type="submit" name="axisOptions">Draw Graph</button>
                         </div>
+                        -->
+                        <label class="form-label small fw-semibold">Package Name</label>
+                        
+                        <select name="package_name" id="package_name" class="small-dropdown">
+                            <?php foreach ($packageNames as $packageName): ?>
+                                <option value="<?= htmlspecialchars($packageName) ?>"
+                                        <?= (isset($_POST['package_name']) && $_POST['package_name'] === $packageName)
+                                                ? 'selected'
+                                                : '' ?>>
+                                    <?= htmlspecialchars($packageName) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        <button type="submit" name="drawGraph" class="btn btn-success m-1">Draw graph</button>
                     </form>
                 </div>
                 <!-- data representation in a table
@@ -193,6 +227,7 @@ $pc->draw();
                 </div>
                 -->
                 <?php
+                /*
                 $graphdata = [
                         [30, 0.66], [4, 0.25], [2, 0.5], [11, 0.09], [5, 0.8], [6, 0.33], [5, 0.2], [14, 0.07]
                 ];
@@ -219,7 +254,32 @@ $pc->draw();
                 ]);
                 //$pc = new C_PhpChartX(array(array(11, 9, 5, 12, 14)),'basic_chart');
                 $pc->draw();
+                */
                 ?>
+                <?php if(!empty($graphData)): ?>
+                    <?php
+                    $pc = new C_PhpChartX([$graphData], 'complexity_chart');
+
+                    /* Axes */
+                    $pc->set_xaxes([
+                            'xaxis' => [
+                                    'label' => 'Commit Order'
+                            ]
+                    ]);
+
+                    $pc->set_yaxes([
+                            'yaxis' => [
+                                    'label' => 'Average Package Complexity',
+                                    'min' => 0
+                            ]
+                    ]);
+
+                    $pc->set_title(['text' => 'Package Complexity Over Time']);
+
+                    $pc->draw();
+
+                    ?>
+                <?php endif; ?>
             </div>
 
         </div>
@@ -307,6 +367,7 @@ $pc->draw();
         $pc->draw();
         */
         ?>
+
     </div>
 </section>
 

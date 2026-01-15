@@ -71,6 +71,18 @@ class ClassMetricsDataSet
         }
         return $dataSet;
     }
+    public function fetchByPackageName($packageName)
+    {
+        $sqlQuery = 'SELECT * FROM class_metrics WHERE package_name = :package_name;';
+        $statement = $this->_dbHandle->prepare($sqlQuery);
+        $statement->bindValue(':package_name', $packageName);
+        $statement->execute();
+        $dataSet = [];
+        while ($row = $statement->fetch(\PDO::FETCH_ASSOC)) {
+            $dataSet[] = new ClassMetricsData($row);
+        }
+        return $dataSet;
+    }
 
     //gets graph valuess
     public function fetchGraphValues($repoOwner, $repoName, $className, $xAxis, $yAxis){
