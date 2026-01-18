@@ -1,6 +1,6 @@
 # The recocelot hackcamp repo for website and database code
 
-Controllers in root directory exlc home controller\
+Controllers in root directory excl home controller\
 phtml pages in Views directory \
 nav bar and footer in Views/template \
 
